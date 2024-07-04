@@ -1,22 +1,17 @@
 import './App.css';
+import movieData from '../../MovieData'; 
+import Main from '../Main/Main';
+import { useState } from 'react';
+import React from 'react';
 
 function App() {
+  const [movies, setMovies] = useState(movieData.movies); 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="movies">
+      <h1>Rancid Tomatillos</h1>
+      <Main movies={movies} />
+    </main>
   );
 }
 
