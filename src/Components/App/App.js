@@ -1,13 +1,24 @@
 import './App.css';
-import movieData from '../../MovieData'; 
 import Main from '../Main/Main';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
 
 function App() {
-  const [movies, setMovies] = useState(movieData.movies);
+  const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [error, setError] = useState(null);
+
+  function getMovies() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(response => response.json())
+    .then(data => setMovies(data.movies))
+    .catch(error => setError('Whoops! Looks like the movies are taking a siesta. Try again later, when they\'re feeling more cooperative.'))
+  }
+
+  useEffect(() => {
+    getMovies()
+  }, [])
 
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
@@ -25,6 +36,7 @@ function App() {
       ) : (
         <Main movies={movies} onMovieClick={handleMovieClick} />
       )}
+      {error && <p>{error}</p>}
     </main>
   );
 }
