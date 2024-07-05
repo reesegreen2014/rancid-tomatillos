@@ -1,0 +1,27 @@
+.movie-details-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .movie-backdrop {
+    width: 25%;
+    max-height: 600px;
+  }
+  
+  .movie-info {
+    padding: 20px;
+  }
+  
+  .movie-info h2 {
+    margin: 10px 0;
+  }
+  
+  .movie-info p {
+    margin: 5px 0;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
