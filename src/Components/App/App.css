@@ -13,6 +13,13 @@
   }
 }
 
+h1 {
+  padding-left: 20px;
+  color: rgb(102, 33, 33);
+  font-size: 50px;
+  text-decoration: underline;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

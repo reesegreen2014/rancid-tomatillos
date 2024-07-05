@@ -1,11 +1,15 @@
 .movie-details-page {
     text-align: center;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .movie-backdrop {
-    width: 25%;
+    width: 50%;
     max-height: 600px;
+    margin: 20px;
   }
   
   .movie-info {
@@ -22,6 +26,12 @@
   
   button {
     padding: 10px 20px;
+    background-color: black;
+    color: white;
     margin-bottom: 20px;
     cursor: pointer;
+    position: absolute;
+    top: 20;
+    left: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   }
