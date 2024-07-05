@@ -1,5 +1,6 @@
 import React from 'react';
 import './MovieDetails.css';
+import PropTypes from 'prop-types';
 
 function MovieDetails({ movie, onBackClick }) {
   return (
@@ -16,3 +17,11 @@ function MovieDetails({ movie, onBackClick }) {
 }
 
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  movie: PropTypes.shape({
+    backdrop_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+  })
+};

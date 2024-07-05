@@ -3,6 +3,8 @@ import Main from '../Main/Main';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import { useState, useEffect } from 'react';
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -41,4 +43,19 @@ function App() {
   );
 }
 
+App.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+  })
+)
+};
+
 export default App;
+
+
