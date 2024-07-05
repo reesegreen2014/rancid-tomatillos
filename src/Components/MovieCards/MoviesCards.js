@@ -1,9 +1,9 @@
 import React from 'react';
 import './MovieCards.css';
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, onClick }) {
   return (
-    <div className="movie-card">
+    <div className="movie-card" onClick={onClick}>
       <img src={movie.poster_path} alt={`${movie.title} poster`} className="movie-poster" />
       <div className="movie-details">
         <h2>{movie.title}</h2>
