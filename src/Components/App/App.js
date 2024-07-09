@@ -11,17 +11,24 @@ function App() {
 
   function getMovies() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(response => response.json())
-    .then(data => setMovies(data.movies))
-    .catch(error => setError('Whoops! Looks like the movies are taking a siesta. Try again later, when they\'re feeling more cooperative.'))
+      .then(response => response.json())
+      .then(data => setMovies(data.movies))
+      .catch(error => setError('Whoops! Looks like the movies are taking a siesta. Try again later, when they\'re feeling more cooperative.'));
+  }
+
+  function getMovieDetails(id) {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(response => response.json())
+      .then(data => setSelectedMovie(data.movie))
+      .catch(error => setError('Whoops! Looks like the movie details are taking a siesta. Try again later, when they\'re feeling more cooperative.'));
   }
 
   useEffect(() => {
-    getMovies()
-  }, [])
+    getMovies();
+  }, []);
 
   const handleMovieClick = (movie) => {
-    setSelectedMovie(movie);
+    getMovieDetails(movie.id);
   };
 
   const handleBackClick = () => {
