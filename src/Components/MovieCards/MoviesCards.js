@@ -2,6 +2,7 @@ import React from 'react';
 import './MovieCards.css';
 
 function MovieCard({ movie, onClick }) {
+  console.log("movie>>>", movie)
   return (
     <div className="movie-card" onClick={onClick}>
       <img src={movie.poster_path} alt={`${movie.title} poster`} className="movie-poster" />
