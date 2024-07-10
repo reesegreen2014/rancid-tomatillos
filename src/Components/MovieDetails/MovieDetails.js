@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './MovieDetails.css';
+import { useNavigate, useParams } from 'react-router-dom';
 
-function MovieDetails({ movie, onBackClick }) {
+function MovieDetails() {
+  const {id} = useParams();
+  const [movie, setMovie] = useState(null);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+    .then(response => response.json())
+    .then(data => setMovie(data.movie))
+    .catch(error => setError('Whoops! Looks like the movie details are taking a siesta. Try again later, when they\'re feeling more cooperative.'))
+  }, [id])
+
+  if(error) {
+    return <p>{error}</p>
+  }
+
+  if(!movie) {
+    return <p>Loading your movie details...</p>
+  }
+
   return (
     <div className="movie-details-page">
-      <button onClick={onBackClick}>Back to list</button>
+      <button onClick={() => navigate('/')}>Back to list</button>
       <img src={movie.backdrop_path} alt={`${movie.title} backdrop`} className="movie-backdrop" />
       <div className="movie-info">
-        <h2>{movie.title}</h2>
+        <h2 className="movie-title">{movie.title}</h2>
         <h3>{movie.tagline}</h3>
         <p><strong>Overview:</strong> {movie.overview}</p>
         <p><strong>Average Rating:</strong> {movie.average_rating.toFixed(1)}</p>
