@@ -4,6 +4,10 @@ import './Main.css';
 import { Link } from 'react-router-dom';
 
 function Main({ movies }) {
+  if (!movies || movies.length === 0) {
+    return <div>No movies available... ain't that weird?</div>;
+  }
+
   return (
     <div className="movies-grid">
       {movies.map(movie => (
