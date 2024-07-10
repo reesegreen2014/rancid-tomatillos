@@ -1,6 +1,8 @@
 import './App.css';
 import Main from '../Main/Main';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -22,11 +24,12 @@ function App() {
 
   return (
     <main className="movies">
-      <h1>Rancid Tomatillos</h1>
+      <Header />
       <Routes>
         <Route path="/" element={<Main movies={movies}/>}/>
         <Route path="/movies/:id" element={<MovieDetails />}/>
       </Routes>
+      <Footer />
       {error && <p>{error}</p>}
     </main>
   );
