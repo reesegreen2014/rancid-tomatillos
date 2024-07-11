@@ -20,7 +20,7 @@ function MovieDetails() {
   }
 
   if(!movie) {
-    return <p>Loading your movie details...</p>
+    return <p><strong>Whoops! We can't fetch the details for that movie. Please try again later!</strong></p>
   }
 
   return (

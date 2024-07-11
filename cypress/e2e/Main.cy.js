@@ -14,7 +14,7 @@ describe('Home Page', () => {
         cy.get('h1').contains('Rancid Tomatillos')
     })
     it('should display a collection of movies', () => {
-        cy.get('.movie-card').should('have.length', 10);
+        cy.get('.movie-card').should('have.length', 10)
     })
     it('should display name of movie', () => {
         cy.get(':nth-child(1) > .movie-card-link > .movie-card > .movie-details').contains('Black Adam')
