@@ -38,7 +38,7 @@ function MovieDetails() {
       <div className="movie-info">
         <h2 className="movie-title">{movie.title}</h2>
         <h3>{movie.tagline}</h3>
-        <p><strong>Overview:</strong> {movie.overview}</p>
+        <p className='movie-overview'><strong>Overview:</strong> {movie.overview}</p>
         <p><strong>Average Rating:</strong> {movie.average_rating.toFixed(1)}</p>
         <p><strong>Release Date:</strong> {movie.release_date}</p>
         <p><strong>Budget:</strong> ${movie.budget.toLocaleString()}</p>
@@ -56,7 +56,6 @@ MovieDetails.propTypes = {
     poster_path: PropTypes.string.isRequired,
     backdrop_path: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
     revenue: PropTypes.number.isRequired,
     budget: PropTypes.number.isRequired,
     runtime: PropTypes.number.isRequired,
