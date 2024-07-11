@@ -23,12 +23,12 @@ describe('Movie Details page', () => {
           cy.get('.movie-info').should('exist')
           cy.get('.movie-title').should('contain.text', movie2.movie.title);
           cy.get('h3').should('exist')
-          cy.get('.movie-info > :nth-child(3)').should('exist');
-          cy.get('.movie-info > :nth-child(4)').should('exist');
-          cy.get('.movie-info > :nth-child(5)').should('exist');
-          cy.get('.movie-info > :nth-child(6)').should('exist');
-          cy.get('.movie-info > :nth-child(7)').should('exist');
-          cy.get('.movie-info > :nth-child(8)').should('exist')
+          cy.get('.movie-info > :nth-child(3)').should('contain.text', movie2.movie.overview);
+          cy.get('.movie-info > :nth-child(4)').should('contain.text', movie2.movie.average_rating);
+          cy.get('.movie-info > :nth-child(5)').should('contain.text', movie2.movie.release_date);
+          cy.get('.movie-info > :nth-child(6)').should('contain.text', 'Budget: $200,000,000');
+          cy.get('.movie-info > :nth-child(7)').should('contain.text', 'Revenue: $393,000,000');
+          cy.get('.movie-info > :nth-child(8)').should('contain.text', 'Runtime: 125 minutes');
         });
       });
 
