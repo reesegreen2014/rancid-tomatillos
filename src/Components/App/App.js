@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -50,5 +51,18 @@ function App() {
     </div>
   );
 }
+
+App.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+  })
+)
+};
 
 export default App;

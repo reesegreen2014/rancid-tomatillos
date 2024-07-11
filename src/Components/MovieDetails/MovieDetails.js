@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import './MovieDetails.css';
 import { useNavigate, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function MovieDetails() {
   const {id} = useParams();
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
     .then(response => response.json())
-    .then(data => setMovie(data.movie))
+    .then(data => {
+      setMovie(data.movie)
+      setLoading(false)
+  })
     .catch(error => setError('Whoops! Looks like the movie details are taking a siesta. Try again later, when they\'re feeling more cooperative.'))
   }, [id])
 
+  if(loading) {
+    return <p>Loading your movie details...</p>
+  }
   if(error) {
     return <p>{error}</p>
   }
@@ -40,6 +48,22 @@ function MovieDetails() {
     </div>
   );
 }
+
+MovieDetails.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    revenue: PropTypes.number.isRequired,
+    budget: PropTypes.number.isRequired,
+    runtime: PropTypes.number.isRequired,
+    tagline: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired
+  })
+};
 
 export default MovieDetails;
 
