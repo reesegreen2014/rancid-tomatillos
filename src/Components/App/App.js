@@ -3,6 +3,7 @@ import Main from '../Main/Main';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import NotFound from '../NotFound/NotFound';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -45,6 +46,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main movies={movies} />} />
           <Route path="/movies/:id" element={<MovieDetails />} />
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </main>
       <Footer />
