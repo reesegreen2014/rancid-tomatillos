@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 
-function Header() {
+function Header({ onBackClick, showBackButton }) {
   return (
     <header className="header">
       <h1>Rancid Tomatillos</h1>
