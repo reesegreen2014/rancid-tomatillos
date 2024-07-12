@@ -8,7 +8,9 @@ Rancid Tomatillos is a React application that fetches and displays movie data fr
 
 ## Technologies Used
 - React
+- React Router
 - JavaScript
+- Cypress
 - HTML
 - CSS
 - Fetch API
@@ -22,10 +24,6 @@ To run this project locally, follow these steps:
   - Start the development server by running `npm start`
   - Enjoy reading about movies!
 
-## Future Enhancements
-- Refactor to use React Router instead of conditional rendering
-- E2E testing with Cypress 
-
 ## Challenges
 - This was our first React project so getting comfortable with the syntax changes from vanilla JavaScript was a bit challenging at first.
   
@@ -33,6 +31,7 @@ To run this project locally, follow these steps:
 - Seamless API intergration
 - Successfully managed application state using React hooks
 - Error handling
+- From the outset, we prioritized building this application with responsiveness in mind. This foresight ensured that when we reached our Choose Your Own Adventure (CYOA) implementation, the process was straightforward and did not necessitate a comprehensive overhaul of our application.
 - Collaboration: this was a fun project to work on as a pair.
 
 ## Screenshots 
