@@ -4,31 +4,35 @@ import { useNavigate, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function MovieDetails() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-    .then(response => response.json())
-    .then(data => {
-      setMovie(data.movie)
-      setLoading(false)
-  })
-    .catch(error => setError('Whoops! Looks like the movie details are taking a siesta. Try again later, when they\'re feeling more cooperative.'))
-  }, [id])
+      .then(response => response.json())
+      .then(data => {
+        setMovie(data.movie);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError("Whoops! Looks like the movie details are taking a siesta. Try again later, when they're feeling more cooperative.");
+        setLoading(false);
+      });
+  }, [id]);
 
-  if(loading) {
-    return <p>Loading your movie details...</p>
-  }
-  if(error) {
-    return <p>{error}</p>
+  if (loading) {
+    return <p>Loading your movie details...</p>;
   }
 
-  if(!movie) {
-    return <p><strong>Whoops! We can't fetch the details for that movie. Please try again later!</strong></p>
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!movie) {
+    return <p><strong>Whoops! We can't fetch the details for that movie. Please try again later!</strong></p>;
   }
 
   return (
@@ -37,12 +41,13 @@ function MovieDetails() {
       <div className="movie-info">
         <h2 className="movie-title">{movie.title}</h2>
         <h3>{movie.tagline}</h3>
-        <p className='movie-overview'><strong>Overview:</strong> {movie.overview}</p>
+        <p className="movie-overview"><strong>Overview:</strong> {movie.overview}</p>
         <p><strong>Average Rating:</strong> {movie.average_rating.toFixed(1)}</p>
         <p><strong>Release Date:</strong> {movie.release_date}</p>
         <p><strong>Budget:</strong> ${movie.budget.toLocaleString()}</p>
         <p><strong>Revenue:</strong> ${movie.revenue.toLocaleString()}</p>
         <p><strong>Runtime:</strong> {movie.runtime} minutes</p>
+        <button className="back-button" onClick={() => navigate('/')}>Back to list</button>
       </div>
     </div>
   );
@@ -59,9 +64,8 @@ MovieDetails.propTypes = {
     budget: PropTypes.number.isRequired,
     runtime: PropTypes.number.isRequired,
     tagline: PropTypes.string.isRequired,
-    average_rating: PropTypes.number.isRequired
-  })
+    average_rating: PropTypes.number.isRequired,
+  }),
 };
 
 export default MovieDetails;
-

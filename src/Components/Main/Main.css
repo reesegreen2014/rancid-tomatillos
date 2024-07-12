@@ -2,8 +2,9 @@
   display: grid; 
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #474646, #d4d5d6);
 }
-
 
 @media (max-width: 1024px) {
   .movies-grid {

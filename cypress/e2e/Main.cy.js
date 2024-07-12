@@ -17,7 +17,7 @@ describe('Home Page', () => {
         cy.get('.movie-card').should('have.length', 10)
     })
     it('should display name of movie', () => {
-        cy.get(':nth-child(1) > .movie-card-link > .movie-card > .movie-details').contains('Black Adam')
+        cy.get('.movie-card').first().find('.movie-details').contains('Black Adam')
     })
 })
 

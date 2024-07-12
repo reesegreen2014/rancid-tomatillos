@@ -23,7 +23,7 @@ function MovieCard({ movie }) {
         <div className="movie-card-back">
           <div className="movie-rating">
             <h2>Rating: {movie.average_rating}</h2>
-            <h2>{movie.title}</h2>
+            <h2>Click to find out more!</h2>
           </div>
         </div>
       </div>
