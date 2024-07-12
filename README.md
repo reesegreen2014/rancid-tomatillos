@@ -5,6 +5,7 @@ Rancid Tomatillos is a React application that fetches and displays movie data fr
 - Display a grid of movies fetched from the API
 - Click on an individual movie for specific details
 - Gracefully handle errors when fetching movie data
+- Responsive across a variety of devices and screen sizes
 
 ## Technologies Used
 - React
@@ -26,19 +27,28 @@ To run this project locally, follow these steps:
 
 ## Challenges
 - This was our first React project so getting comfortable with the syntax changes from vanilla JavaScript was a bit challenging at first.
+- Ensuring responsiveness across all devices at various breakpoints throughout the application.
   
 ## Wins 
-- Seamless API intergration
+- Seamless API integration
 - Successfully managed application state using React hooks
 - Error handling
 - From the outset, we prioritized building this application with responsiveness in mind. This foresight ensured that when we reached our Choose Your Own Adventure (CYOA) implementation, the process was straightforward and did not necessitate a comprehensive overhaul of our application.
+- Testing both happy and sad paths using Cypress
 - Collaboration: this was a fun project to work on as a pair.
 
 ## Screenshots 
-![image](https://github.com/reesegreen2014/rancid-tomatillos/assets/150177522/688d834a-7ebe-48fc-ab15-70f3890f6be1)
-![image](https://github.com/reesegreen2014/rancid-tomatillos/assets/150177522/94dd8f24-8f4d-49bf-ac24-7e2e5b8cdc17)
+### **Card Flip**  
+  ![Card flip](https://github.com/user-attachments/assets/e77a2fa8-7529-423e-aef5-8b5be44388c2)
+
+### **Movie Details**  
+  ![Movie Details](https://github.com/user-attachments/assets/d2c50e7b-32b7-4e68-a3e1-18921594a907)
+
+### **iPhone Web View**  
+  ![iPhone web view](https://github.com/user-attachments/assets/7da29098-de66-489c-b34d-e762d0027904)
 
 ## Acknowledgements
 - [Turing](https://turing.edu/) for education.
 - [CSS Tricks](https://css-tricks.com/) for CSS inspiration.
 - [React.dev](https://react.dev/) for React documentation.
+- [Cypress Docs](https://docs.cypress.io/) for Cypress training and documentation.
