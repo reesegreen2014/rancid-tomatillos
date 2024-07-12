@@ -33,7 +33,6 @@ function MovieDetails() {
 
   return (
     <div className="movie-details-page">
-      <button onClick={() => navigate('/')}>Back to list</button>
       <img src={movie.backdrop_path} alt={`${movie.title} backdrop`} className="movie-backdrop" />
       <div className="movie-info">
         <h2 className="movie-title">{movie.title}</h2>

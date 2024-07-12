@@ -1,13 +1,29 @@
 .header {
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: left;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    color: #333;
-  }
-  
+  display: flex;
+  justify-content: space-around;
+  background-color: lightgray;
+  padding: 20px;
+  color: white;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: black; 
+}
+
+.back-button {
+  padding: 10px 20px;
+  background-color: #2980b9;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.back-button:hover {
+  background-color: #1a6fa1;
+  transform: scale(1.05);
+}
